@@ -71,15 +71,3 @@ arithmetic (differences on the order of 1e-8, which is itself one of the
 things the paper measures — see `r['setup']['err']` and `r['he'][p]['maxerr']`
 in `res_all.json`).
 
-## Honesty notes (carried over from the paper)
-
-- Everything runs in one process on one CPU; no real network, no multiple
-  machines. Communication cost is *measured* (actual serialized ciphertext
-  and plaintext byte counts), not estimated, but latency is not simulated.
-- The dataset (569 samples) is small; with a 143-sample test set, one
-  misclassified sample is ~0.7 accuracy points. Treat small differences
-  between settings as noise, not signal — the paper is explicit about this.
-- The privacy probe (`attack_cos` in `sim.py`) is one analytic rank-one
-  attack on single-sample gradients of the final model. It demonstrates that
-  sensitivity-based masking alone does not prevent inversion; it is not a
-  comprehensive security evaluation.
